@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title></title>
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+    <style>
+        input{padding: .5rem;}
+        body{display: flex;align-items: center; justify-items: center;font-family: monospace; font-size: 1.1rem;background: rgb(76, 76, 76);min-height: 90vh;}
+        #container{max-width: 1240px; width: 100%;margin: auto;padding: 3%;border-radius: 1%;background: white}
+        #title{text-align: center;margin: 3rem}
+        .ds-f{display: flex;gap: 1rem; flex-wrap: wrap; justify-items: center;justify-content: center;margin: 1rem;margin: 2rem;}
+        .jsc-spa{justify-content: space-around}
+        table{min-width: 20%;border-collapse: collapse;}
+        tr, td, th{border: 1px solid #333;padding: .5rem;font-family: monospace;font-size: 1.2rem;}
+        #results-table{width: 100%; max-width: 840px; margin: auto;}
+        p#result{padding: .5rem; text-align: center;}
+        button{padding: 1rem 2rem; min-width: 15%; margin: .5rem 2%; border: none; outline: none;font-weight: bold;border-radius: 1rem;color: tomato;font-size: 1.1rem;font-family: monospace;}
+        .ds-f label{text-align: right;width: 20%}
+        input{width: 100%; max-width: 380px;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Context Free Grammar Simulator</h1>
+    <div>
+        <div>
+            <form onsubmit="return test_if_string_match()">
+                <div class="ds-f">
+                    <label for="production-rule-input" >Production Rule: </label>
+                    <input type="text" id="production-rule-input" placeholder="enter the production rule" required><br />
+                </div>
+                <div class="ds-f">
+                    <label for="start-symbol-input" >Start Symbol: </label>
+                    <input type="text" id="start-symbol-input" placeholder="enter the start symbol" required><br />
+                </div>
+                <div class="ds-f">
+                    <label for="test-string-input" >Test String: </label>
+                    <input type="text" id="test-string-input" placeholder="enter the string to be tested" required><br />
+                </div>
+                <p align="center">
+                    <button type="submit"">Simulate</button>
+                    <button onclick="window.location.reload()">Clear Input</button>
+                </p>
+            </form>
+        </div>
+        <br /><hr /><br />
+        <div class="ds-f jsc-spa">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="variables-title">Variables</th>
+                    </tr>
+                </thead>
+                <tbody id="variables-table-body">
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Production Rules</th>
+                    </tr>
+                </thead>
+                <tbody id="rules-table-body">
+                    
+                </tbody>
+            </table>
+        </div>
+        <br /><hr /><br />
+    </div>
+    <br />
+    <p id="result"></p>
+    <br />
+    <table id="results-table">
+        <thead>
+            <th>Application</th>
+            <th>Rule</th>
+            <th>Result</th>
+        </thead>
+        <tbody id="results-table-body">
+        </tbody>
+    </table>
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>
